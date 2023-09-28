@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Login</title>
+    <link rel="stylesheet" href="css_login.css">
+</head>
+<body class="bg-login-pda" cz-shortcut-listen="true">
+    <main id="page-content"> 
+        <div class="contaier-fluid">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="text-center logoLogin">
+                   <img src="" height="40" alt>
+                   <strong>Cadastros</strong>
+                </div>
+                <ul class="nav nav-tabs nav-login">
+                    <!-- inicio -->
+                    <li class="active nav-item"> 
+                        <a title="Login" href="#login" data-toggle="tab">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a title="Primeiro acesso" href="#cadastro" data-toggle="tab">Primeiro acesso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a title="Esqueceu sua senha?" href="#esqueceu-sua-senha" data-toggle="tab">Esqueceu sua senha?</a>
+                    </li>
+                    <!-- fim -->
+                </ul>
+                <!-- paineis de guias -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="login">
+                        <form action="/login/authenticate" method="post" id="loginForm" class="mt-30-js-login-form">
+                            <div class="form-group">
+                                <label for="username" class="hidden">Usuário</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa-user">
+                                           
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Usuário">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="hidden">Senha</label>
+                                <div class="input-group no-margin-bottom">
+                                    <span class="input-group-addon">
+                                        <i class="fa-lock">
+                                          
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="password" class="form-control"  id="password" name="password" placeholder="Senha">
+                                </div>
+                            </div>
+                            <div class="checkbox mb-20">
+                                <label>
+                                    <input type="checkbox" name="_spring_security_remember_me" id="remember_me">
+                                     Mantenha-me conectado 
+                                </label>
+                            </div>
+                            <button class="btn btn-primary btn-lg btn-block mb-10">Entrar</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="cadastro">
+                        <form action="/welcome/create-password" method="post" id="cadastroForm" class="mt-30 js-valida-submit" data-input-feedback="true">
+                            <div class="form-group">
+                                <label for="matricula" class="hidden">Matrícula</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa-graduation-cap">
+                                            
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="text" class="form-control js-required" id="matricula" name="matricula" placeholder="Matrícula">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sobrenome" class="hidden">Último nome</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa-user">
+                                            
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="text" class="form-control js-required" id="sobrenome" name="sobrenome" placeholder="Último nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf" class="hidden">CPF</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa-user">
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="text" class="form-control js-mask-cpf js-required" id="cpf" name="cpf" placeholder="CPF">
+                                </div>
+                                <p class="help-block ie-show">CPF</p>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block mt-20">Cadastrar</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="esqueceu-sua-senha">
+                        <form action="/welcome/restorePassword" method="post" id="recoverForm" class="mt-30 js-recover-form">
+                            <p class="alert alert-info">
+                                "Insira seu usúario no campo abaixo. Enviaremos um link para redefinição da sua senha."
+                            </p>
+                            <div class="form-group">
+                                <label for="matricula" class="hidden">Matrícula</label>
+                                <div class="input-group no-margin-bottom">
+                                    <span class="input-group-addon">
+                                        <i class="fa-user">
+                                            <!-- icone -->
+                                        </i>
+                                    </span>
+                                    <input type="text" class="form-control js-required" id="usuario" name="usuario" placeholder="Usúario">
+                                </div>
+                            </div>
+                            <button title="Redefinir a senha" type="submit" class="btn btn-primary btn-1g btn-block mt-20">Redefinir a senha</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- modelos -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="model-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Tela de login</h4>
+                        </div>
+                        <div class="modal-body text-justify">
+                            <p>"O espaço digital de cadastro de pessoas e protocolos tem por objetivo principal ser, um espaço onde o funcionario vai cadastrar contribuintes e registrar seus protocolos de atendimento, e moniorar como vai o andamento do requisito."</p>
+                            <p>"Aqui são desenvolvidos os seguintes cadastros: Pessoas e Protocolos."</p>
+                            <p>"Na area da Auditoria as pessoas autorizadas, tem total acesso ao progresso do cadastro."</p>
+                            <p>"Um exelente trabalho!"</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Voltar ao login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="divCookies" class="cookies escondeDivCookies">
+                <p>"Este site pode conter alguns cookies"</p>
+                <button id="btnCookies" class="classBtnCookies">Ok</button>
+            </div>
+            <button id="btnPrivacidade" onclick="redirectPortalPrivacidade()" class="btnPrivacidade" style="display: block;">Política de Privacidade</button>
+            <script>
+                $('#btnCookies').on('click', function(){
+                    $('#divCookies').addClass('escondeDivCookies');
+                    $('#divCookies').removeClass('mostraDivCookies');
+                    $('#btnPrivacidade').show();
+                });
+            </script>
+        </div>
+    </main>
+    <script>
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-3158698-61', 'auto');
+        ga('send', 'pageview');
+
+        $('.js-forget-password').click(function(e){
+            console.log('Entrou password');
+            e.preventDefault();
+            $('.js-login-form, .js-recover-form').toggleClass('hide');
+        });
+
+    </script>
+</body>
+</html>
